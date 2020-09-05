@@ -6,23 +6,26 @@ from chatterbot import ChatBot
 from chatterbot.trainers import ListTrainer #Training the chatbot on Listening mode
 import logging
 logging.basicConfig(level=logging.CRITICAL) #remove logs from terminal
+
 from time import sleep
+from random import randint #adding some random time
+import emoji
 
 
 class scrapping_massages():
     def __init__(self):
 
-        self.enter_contact = str(input('Enter the name of the person or group you want to start.'
+        self.enter_contact = str(input(emoji.emojize('Enter the name of the person or group you want to start.'
         '\nAttention: the name must be written exactly as it is in your WhatsApp:'
-        '\n>>'))
-        self.driver = webdriver.Chrome(executable_path='/home/cleomenezes/Projetos/WhatsApp ChatBot/chromedriver_linux64/chromedriver')
+        '\n>>')))
+        self.driver = webdriver.Chrome(executable_path='chromedriver_linux64/chromedriver')
         self.driver.get("https://web.whatsapp.com/")
         input("Press Enter if you have already scanned and log in to WhatsApp.\n>>")
 
             
     def get_person(self):
         person = self.driver.find_element_by_xpath(f"//span[@title='{self.enter_contact}']")
-        sleep(3)                                                                            
+        sleep(randint(1, 5))                                                                            
         person.click()
 
 
@@ -45,8 +48,7 @@ class scrapping_massages():
 
         #Training the chatbot on corpus mode
         '''trainer = ChatterBotCorpusTrainer(bot)
-        trainer = ListTrainer(bot)
-        trainer.train("chatterbot.corpus.portuguese")'''
+        trainer.train("chatterbot.corpus.english")'''
 
 
         while True:
@@ -60,14 +62,14 @@ class scrapping_massages():
                 self.bot_answer = bot.get_response(user_input)
 
                 chatbox = self.driver.find_element_by_class_name("_3uMse")
-                sleep(2)
+                sleep(randint(1, 5)) 
                 chatbox.click()
                 chatbox.send_keys("⠀" + str(self.bot_answer))
                 send_botton = self.driver.find_element_by_xpath("//span[@data-icon='send']")
-                sleep(2)
+                sleep(randint(1, 5)) 
 
                 send_botton.click()
-                sleep(5)
+                sleep(randint(1, 5)) 
 
 
 

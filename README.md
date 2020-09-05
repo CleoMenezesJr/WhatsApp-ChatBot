@@ -30,7 +30,7 @@ Now wait and ... It will start like magic! err... Sorry, Elon Musk. I mean "Like
 <p>
 The bot uses a selection of machine learning algorithms to produce different types of responses.
 The responses are stored in a file called db.sqlite3.
-There are already several different conversations from his database (They are in Portuguese, but you can change it easily by accessing here).
+There are already several different conversations from his database (It is in english, but you can change it easily by accessing <a href="#">https://github.com/gunthercox/chatterbot-corpus</a>). 
 You can delete it if you want to remit the training as another one will be generated automatically.
 
 Specifically in this project, I had already trained, so I turned off the training based on the corpus, so I commented:
@@ -41,7 +41,7 @@ from chatterbot.trainers import ChatterBotCorpusTrainer
          trainer.train ("chatterbot.corpus.portuguese")
 ```
 
-I left the listening mode on, where you keep new and different answers. Don't worry, I left this part commented so you know what it is.
+I let the listening mode on, where you keep new and different answers. Don't worry, I left this part commented so you know what it is.
 If you are going to activate one, disable the other.
 </p>
 
