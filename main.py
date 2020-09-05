@@ -9,18 +9,20 @@ logging.basicConfig(level=logging.CRITICAL) #remove logs from terminal
 from time import sleep
 
 
-
-
 class scrapping_massages():
     def __init__(self):
-        self.driver = webdriver.Chrome(executable_path='/home/cleomenezes/Projetos/Autochatbox/chromedriver_linux64/chromedriver')
+
+        self.enter_contact = str(input('Enter the name of the person or group you want to start.'
+        '\nAttention: the name must be written exactly as it is in your WhatsApp:'
+        '\n>>'))
+        self.driver = webdriver.Chrome(executable_path='/home/cleomenezes/Projetos/WhatsApp ChatBot/chromedriver_linux64/chromedriver')
         self.driver.get("https://web.whatsapp.com/")
-        sleep(10)
+        input("Press Enter if you have already scanned and log in to WhatsApp.\n>>")
 
             
     def get_person(self):
-        person = self.driver.find_element_by_xpath(f"//span[@title='{str('BotTest')}']") #BotTest was a contact that I created to test this. 
-        sleep(3)                                                                             # ^ replace with the desired contact name. Next version I will put a easier and auto way to do it
+        person = self.driver.find_element_by_xpath(f"//span[@title='{self.enter_contact}']")
+        sleep(3)                                                                            
         person.click()
 
 
@@ -37,7 +39,7 @@ class scrapping_massages():
         
         bot = ChatBot("Mr.MenezesBot")
         #Training the chatbot on Listening mode
-        conversation = ["Opa", "diga", "valeu", "falou"] #Here a put some different words, nothing especial
+        conversation = ["hey", "sup homie"] #Here a put some different words, nothing especial
         trainer = ListTrainer(bot)
         trainer.train(conversation)
 
@@ -71,5 +73,4 @@ class scrapping_massages():
 
 run = scrapping_massages()
 run.get_person()
-sleep(8)
 run.chat_bot()
