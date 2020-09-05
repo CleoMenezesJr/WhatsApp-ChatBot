@@ -38,7 +38,7 @@ Specifically in this project, I had already trained, so I turned off the trainin
 from chatterbot.trainers import ChatterBotCorpusTrainer
          trainer = ChatterBotCorpusTrainer (bot)
          trainer = ListTrainer (bot)
-         trainer.train ("chatterbot.corpus.portuguese")
+         trainer.train ("chatterbot.corpus.english")
 ```
 
 I let the listening mode on, where you keep new and different answers. Don't worry, I left this part commented so you know what it is.
