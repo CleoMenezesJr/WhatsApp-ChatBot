@@ -57,10 +57,3 @@ The following tools were used in the construction of the project:
 <p>
 If the program cannot find the contact, it may be far down in the chat list. I still don't know how to solve this. Bringing him into the most recent conversations solves this problem. :)
 </p>
-
-
-        self.enter_contact = str(input('''Enter the name of the person or group you want to start.
-    Attention: the name must be written exactly as it is in your WhatsApp:
-    >>'''))
-
-    input("Press Enter if you have already scanned and log in to WhatsApp.")
